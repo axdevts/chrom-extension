@@ -1,0 +1,112 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+
+<head>
+    <title>Getting Started Extension's Popup</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+            font-size: 100%;
+        }
+
+        #status {
+            /* avoid an excessively wide status text */
+
+            white-space: pre;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 400px;
+            width: 400px;
+        }
+        img.thumbnailImage{
+            float:left;
+        }
+        .describe {
+            float: right;
+            width: 285px;
+            background-color: beige;
+            min-height: 90px;
+            padding: 5px;
+        }
+        a.productLink {
+            display: block;
+            clear:both;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        a.productLink:nth-child(odd) .describe {
+             background-color: antiquewhite;
+        }
+        a.productLink:hover .describe {
+            background-color: aliceblue;
+        }
+        .salePrice{
+            color: darkgreen;
+            font-weight: bold;
+        }
+        .standardShipRate{
+            color:gray;
+            font-size: smaller;
+        }
+        .clearMe {
+            clear:both;
+        }
+
+        img.brandLogo {
+            max-height: 40px;
+        }
+
+        #showNoResults {
+            padding: 10px;
+            color:gray;
+            display: none;
+        }
+        #showNoResults.show {
+            display: block;
+        }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+</head>
+
+<body>
+    <div id="status"></div>
+
+    <div class="brand walmart">
+        <img src="wmt_h_r_c.jpg" class="brandLogo">
+    </div>
+
+    <div id="showNoResults">
+        No results found
+    </div>
+    <div id="results">
+    </div>
+    <template id="resultTemplateWalmart">
+        <a href="" class="productLink" target="_blank">
+            <img src="" class="thumbnailImage">
+            <div class="describe">
+                <div class="name"></div>
+                <div class="salePrice">
+                    $<span></span>
+                </div>
+                <div class="standardShipRate">
+                    plus $<span></span> shipping
+                </div>
+            </div>
+            <div class="clearMe"></div>
+        </a>
+    </template>
+</body>
+
+</html>

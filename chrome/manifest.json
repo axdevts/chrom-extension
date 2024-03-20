@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Amazon Alt - Walmart Search",
+  "description": "Click extension button when browsing Amazon.com to search Walmart.com for related products",
+  "version": "1.0",
+  "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "https://ajax.googleapis.com/",
+    "http://api.walmartlabs.com/"
+  ]
+}
